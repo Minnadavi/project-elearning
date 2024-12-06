@@ -1,0 +1,65 @@
+<div class="parent">
+    <div class="row">
+        <div class="card students">20 Students</div>
+        <div class="card courses">4 Courses</div>
+    </div>
+
+    <div class="end_row">
+        <button class="add-btn" (click)="openModal()">Entroll Course</button>
+    </div>
+
+    <div class="modal-backdrop" *ngIf="isModalOpen" (click)="closeModal()"></div>
+    <div class="modal" *ngIf="isModalOpen">
+        <div class="modal_content">
+            <form class="modal_content" [formGroup]="courseForm">
+                <h3>Assign New Course</h3>
+                <input type="text" name="name" placeholder="enter name" formControlName="name">
+                <input type="number" name="progress" placeholder="enter progress value" formControlName="progress"
+                    *ngIf="editID">
+                <select name="course" class="dropdown" formControlName="course">
+                    <option value="">Select Course</option>
+                    @for (item of availableCourses; track $index) {
+                    <option value={{item}}>{{item}}</option>
+                    }
+                </select>
+                @if (editID !== '') {
+                <button class="add-btn" [disabled]="!courseForm.valid" (click)="updateCourse()">Update</button>
+                }@else {
+                <button class="add-btn" [disabled]="!courseForm.valid" (click)="addNewStudent()">Save</button>
+                }
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="student_table">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Course</th>
+                    <th>Progress</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of students; let i = index">
+                    <td>{{data.id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.course}}</td>
+                    <td>
+                        <div id="chart-{{i}}"></div>
+                        <!-- <p>{{data.progress }}%</p> -->
+                    </td>
+                    <td class="actions_buttons">
+                        <button class="edit-btn" (click)="editCourse(data)">Edit</button>
+                        <button class="dlt-btn" (click)="deleteCourse(data.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

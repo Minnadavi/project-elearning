@@ -1,0 +1,92 @@
+{
+    "users": [
+      {
+        "id": "21f9",
+        "name": "ghgfhfg",
+        "email": "minna@gmail.com",
+        "password": "232323",
+        "specialization": "gghg"
+      },
+      {
+        "id": "d38a",
+        "name": "Minna Davis",
+        "email": "minnadavis2001@gmail.com",
+        "password": "123",
+        "specialization": "process control"
+      },
+      {
+        "id": "6209",
+        "name": "Minna Davis",
+        "email": "roseminna763@gmail.com",
+        "password": "232323",
+        "specialization": "process control"
+      },
+      {
+        "id": "8290",
+        "name": "User",
+        "email": "user@gmail.com",
+        "password": "123",
+        "specialization": "Front-end Development"
+      }
+    ],
+    "admin": {
+      "id": "admin",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "password"
+    },
+    "instructors": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "specialization": "mobile Development",
+        "courses": "flutter"
+      },
+      {
+        "id": "b612",
+        "name": "Minna Davis",
+        "specialization": "process control",
+        "courses": "Laravel"
+      }
+    ],
+    "students": [
+      {
+        "name": "Asif",
+        "course": "Angular",
+        "progress": 60,
+        "id": "37e8"
+      },
+      {
+        "name": "leo",
+        "course": "History",
+        "progress": 80,
+        "id": "58ce"
+      }
+    ],
+    "courses": [
+      {
+        "id": "5815",
+        "name": "Flutter",
+        "duration": "6 months",
+        "category": "Software Development"
+      },
+      {
+        "id": "5702",
+        "name": "Laravel",
+        "duration": "6 months",
+        "category": "Backend"
+      },
+      {
+        "id": "109a",
+        "name": "Angular",
+        "duration": "6 months",
+        "category": "Web Development"
+      },
+      {
+        "name": "Python",
+        "duration": "3 months",
+        "category": "Backend",
+        "id": "e906"
+      }
+    ]
+  }

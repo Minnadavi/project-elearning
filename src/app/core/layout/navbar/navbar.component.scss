@@ -1,0 +1,97 @@
+.nav {
+    height: 70px;
+    width: 100%;
+    // background-color: rgb(43, 159, 222);
+    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+
+    &_logo {
+
+        a {
+            font-size: 29px;
+            // color: white;
+            font-weight: bold;
+        }
+    }
+
+    &_menu {
+        display: flex;
+        gap: 20px;
+
+        &_item {
+            &_link {
+                font-size: 16px;
+                color: black;
+                transition: 0.3s ease;
+
+                &:hover {
+                    color: rgb(36, 52, 59);
+                    font-size: 18px;
+                }
+            }
+        }
+
+        &_button {
+            display: none;
+        }
+    }
+
+    &_toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+
+        span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+        }
+    }
+
+}
+
+.active {
+    color: rgb(221, 0, 0);
+    font-size: 19px;
+    font-weight: 600;
+}
+
+@media (max-width:800px) {
+    .nav_menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: rgb(43, 159, 222);
+        flex-direction: column;
+        width: 100%;
+        padding: 10px 0;
+        align-items: center;
+    }
+
+    .nav_buttons {
+        display: none;
+    }
+
+    .nav_toggle {
+        display: flex;
+    }
+
+    .nav_menu.show {
+        display: flex;
+    }
+
+    .nav_menu_item {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav_menu_button {
+        display: block;
+    }
+}

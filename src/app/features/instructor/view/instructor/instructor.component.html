@@ -1,0 +1,63 @@
+<div class="parent">
+    <div class="row">
+        <div class="card instructor">20 Instructor</div>
+        <div class="card courses">4 Courses</div>
+    </div>
+
+    <div class="end_row">
+        <button class="add-btn" (click)="openModal()">Assign Courses</button>
+    </div>
+
+    <div class="modal-backdrop" *ngIf="isModalOpen" (click)="closeModal()"></div>
+    <div class="modal" *ngIf="isModalOpen">
+
+        <form class="modal_content" [formGroup]="instrutorForm">
+
+            <h3>Assign New Course</h3>
+
+            <select class="dropdown" name="name" formControlName="id" (ngModelChange)="getSelectedInstructor()">
+                @for (data of users; track $index) {
+                <option value={{data.id}}>{{data.name}}</option>
+                }
+            </select>
+
+            <select class="dropdown" name="Course" formControlName="course">
+                @for (data of courses; track $index) {
+                <option value={{data}}>{{data}}</option>
+                }
+            </select>
+
+            @if (editID !== '') {
+            <button class="add-btn" [disabled]="!instrutorForm.valid" (click)="updateinstructordata()">Update</button>
+            }@else {
+            <button class="add-btn" [disabled]="!instrutorForm.valid" (click)="addInstructorData()">Save</button>
+            }
+        </form>
+    </div>
+    <!--  -->
+    <div class="instructor_table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sl.no</th>
+                    <th>Name</th>
+                    <th>Specialized</th>
+                    <th>Course</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of instructors; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.specialization}}</td>
+                    <td>{{data.courses}}</td>
+                    <td class="actions_buttons">
+                        <button class="edit-btn" (click)="editinstructordata(data)">Edit</button>
+                        <button class="dlt-btn" (click)="deleteinstructordata(data.id??'')">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

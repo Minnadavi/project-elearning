@@ -1,0 +1,43 @@
+.about-us {
+    padding: 30px;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        margin-bottom: 5px;
+        font-size: 28px;
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.left {
+    width: 40%;
+
+    img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+}
+
+.right {
+    width: 60%;
+}
+
+
+@media (max-width:800px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .right {
+        text-align: center;
+    }
+}

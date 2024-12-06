@@ -1,0 +1,102 @@
+<div class="parent">
+
+    <div class="container" [class.active]="isRegisterActive">
+        <!-- if isRegisterActive == false then login is visilbe -->
+        <div class="form-box login" *ngIf="!isRegisterActive">
+            <!-- form login start -->
+            <form [formGroup]="loginform" (ngSubmit)="login()">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email" name="email" formControlName="email">
+                </div>
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" formControlName="password">
+                </div>
+                <div class="forgot-link">
+                    <a routerLink="/reset-password">Forgot Password?</a>
+                </div>
+
+
+                <!-- login validation error display -->
+                <div *ngIf="loginform.get('email')?.invalid && loginform.get('password')?.touched" class="error_box">
+                    <div *ngIf="loginform.get('email')?.errors!['required']">Email is required
+                    </div>
+                    <div *ngIf="loginform.get('email')?.errors!['email']">Enter correct email
+                    </div>
+                </div>
+                <div *ngIf="loginform.get('password')?.invalid && loginform.get('password')?.touched" class="error_box">
+                    <div *ngIf="loginform.get('password')?.errors!['required']">password is required
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" [disabled]="!loginform.valid">Login</button>
+            </form>
+            <!-- form login end -->
+        </div>
+
+        <div class="form-box register" *ngIf="isRegisterActive">
+            <!-- form register start -->
+            <form [formGroup]="registerform" (ngSubmit)="register()">
+                <h1>Registration</h1>
+                <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="User name" name="username" formControlName="name">
+                </div>
+                <div class="input-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email" name="email" formControlName="email">
+                </div>
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" formControlName="password">
+                </div>
+                <div class="input-box">
+                    <i class="fa-solid fa-award"></i>
+                    <input type="text" placeholder="specialization" name="specialization"
+                        formControlName="specialization">
+                </div>
+
+                <!-- register validation error display -->
+                <div *ngIf="registerform.get('name')?.invalid && registerform.get('name')?.touched" class="error_box">
+                    <div *ngIf="registerform.get('name')?.errors!['required']">name is required
+                    </div>
+                </div>
+                <div *ngIf="registerform.get('email')?.invalid && registerform.get('email')?.touched" class="error_box">
+                    <div *ngIf="registerform.get('email')?.errors!['required']">Email is required
+                    </div>
+                    <div *ngIf="registerform.get('email')?.errors!['email']">Enter correct email
+                    </div>
+                </div>
+                <div *ngIf="registerform.get('password')?.invalid && registerform.get('password')?.touched"
+                    class="error_box">
+                    <div *ngIf="registerform.get('password')?.errors!['required']">password is required
+                    </div>
+                </div>
+                <div *ngIf="registerform.get('specialization')?.invalid && registerform.get('specialization')?.touched"
+                    class="error_box">
+                    <div *ngIf="registerform.get('specialization')?.errors!['required']">specialization is required
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" [disabled]="!registerform.valid">Register</button>
+            </form>
+            <!-- form register end -->
+        </div>
+
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left" *ngIf="!isRegisterActive">
+                <h1>Hello, Welcome!</h1>
+                <p>Don't have an account?</p>
+                <button class="btn register-btn" (click)="turnRegister()">Register</button>
+            </div>
+
+            <div class="toggle-panel toggle-right" *ngIf="isRegisterActive">
+                <h1>Welcome Back!</h1>
+                <p>Already have an account?</p>
+                <button class="btn login-btn" (click)="turnLogin()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>

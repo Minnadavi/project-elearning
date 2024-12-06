@@ -1,0 +1,54 @@
+<div class="parent">
+    <div class="row">
+        <div class="card course">20 Courses</div>
+        <div class="card category">4 Categories</div>
+    </div>
+
+    <div class="end_row">
+        <button class="add-btn" (click)="openModal()">Add Course</button>
+    </div>
+
+    <div class="modal-backdrop" *ngIf="isModalOpen" (click)="closeModal()"></div>
+    <div class="modal" *ngIf="isModalOpen">
+        <div class="modal_content">
+            <form [formGroup]="courseForm" class="modal_content">
+                <h3>Add New Course</h3>
+                <input type="text" name="name" placeholder="enter course name" formControlName="name">
+                <input type="text" name="duration" placeholder="enter course duration" formControlName="duration">
+                <input type="text" name="category" placeholder="enter course category" formControlName="category">
+                @if (editID !== '') {
+                <button class="add-btn" [disabled]="!courseForm.valid" (click)="updateCourse()">Update</button>
+                }@else {
+                <button class="add-btn" [disabled]="!courseForm.valid" (click)="addCourse()">Save</button>
+                }
+            </form>
+        </div>
+    </div>
+
+    <div class="course_table">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Duration</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let data of courses; let i = index">
+                    <td>{{data.id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.duration}}</td>
+                    <td>{{data.category}}</td>
+                    <td class="actions_buttons">
+                        <button class="edit-btn" (click)="editCourse(data)">Edit</button>
+                        <button class="dlt-btn" (click)="deleteCourse(data.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

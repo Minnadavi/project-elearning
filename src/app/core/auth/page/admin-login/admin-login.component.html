@@ -1,0 +1,10 @@
+<div class="parent">
+    <div class="container">
+        <form class="login_form" [formGroup]="loginForm" (ngSubmit)="login()">
+            <h1>Admin Login</h1>
+            <input type="text" placeholder="username" name="name" formControlName="name">
+            <input type="password" placeholder="password" name="password" formControlName="password">
+            <button type="submit" class="primary-btn">Login</button>
+        </form>
+    </div>
+</div>
