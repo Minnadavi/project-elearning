@@ -8,7 +8,8 @@ import { CourseComponent } from './features/course/view/course/course.component'
 import { StudentComponent } from './features/student/view/student/student.component';
 import { InstructorComponent } from './features/instructor/view/instructor/instructor.component';
 import { ResetPasswordComponent } from './core/auth/page/reset-password/reset-password.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
+import { AboutUsComponent } from './shared/components/about-us/about-us.component';
+
 
 export const routes: Routes = [
     {
