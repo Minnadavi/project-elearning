@@ -53,7 +53,11 @@ export class StudentComponent implements OnInit, OnDestroy {
   }
 
   addNewStudent() {
-    this.service.addstudent(this.courseForm.value).subscribe({
+    this.service.addstudent({
+      name: this.courseForm.value.name,
+      course: this.courseForm.value.course,
+      progress: 0
+    }).subscribe({
       next: (value: any) => {
         this.fetchStudents();
         this.closeModal();
