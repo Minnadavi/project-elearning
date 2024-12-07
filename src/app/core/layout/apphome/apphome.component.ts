@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from "../../../components/home/home.component";
-import { ContactComponent } from "../../../components/contact/contact.component";
-import { FooterComponent } from "../../../components/footer/footer.component";
-import { AboutUsComponent } from "../../../components/about-us/about-us.component";
+import { HomeComponent } from '../../../shared/components/home/home.component';
+import { ContactComponent } from '../../../shared/components/contact/contact.component';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { AboutUsComponent } from '../../../shared/components/about-us/about-us.component';
 
 @Component({
   selector: 'app-apphome',
